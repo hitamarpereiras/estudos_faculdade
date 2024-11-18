@@ -16,15 +16,25 @@ def get_hours():
 """ Funcao principal """
 def main(frase):
     context = frase
-    if context == 'exit':
-        exit()
-    else:
-        print("\033[0;33;44mVerifiando ou criando a Pasta!\033[m\n")
-        sleep(1)
-        paths = "./arquivos"
-        os.makedirs(paths, exist_ok=True)
+    print("\033[0;33;44mVerifiando ou criando a Pasta!\033[m\n")
+    sleep(1)
+    paths = "./arquivos"
+    os.makedirs(paths, exist_ok=True)
 
-        name_file = get_hours()
+    name_file = get_hours()
+
+    if context == 'exit':
+        print(f"\033[0;32;42m| Conteudo do arquivo = {name_file}.txt |\033[m")
+
+        with open(f"{paths}/{name_file}.txt", mode="r", encoding="utf-8") as file:
+            text = file.readlines()
+
+            for i, row in enumerate(text):
+                print(f"{i}: {row}")
+                sleep(.5)
+        exit()
+
+    else:
         print("\033[0;33;44mModificando...\033[m\n")
         sleep(1)
 

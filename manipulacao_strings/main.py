@@ -24,15 +24,17 @@ def main(frase):
     name_file = get_hours()
 
     if context == 'exit':
-        print(f"\033[0;32;42m| Conteudo do arquivo = {name_file}.txt |\033[m")
-        count = input("Qual palavra quer verificar? \n")
+        print("Qual palavra ou letra quer verificar?")
+        count = input(">> ")
 
+        print(f"\033[0;32;42m| Conteudo do arquivo = {name_file}.txt |\033[m")
         with open(f"{paths}/{name_file}.txt", mode="r", encoding="utf-8") as file:
             text = file.readlines()
 
             for i, row in enumerate(text):
                 print(f"{i}: {row}")
-                print(f"\033[0;33;44mQuatidade de palavras encontradas: {row.count(count)}\033[m")
+                print(f"\033[0;33;44mQuatidade de palavras encontradas\033[m")
+                print(row.count(count))
                 sleep(.5)
         exit()
 

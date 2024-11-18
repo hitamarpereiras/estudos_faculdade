@@ -25,12 +25,14 @@ def main(frase):
 
     if context == 'exit':
         print(f"\033[0;32;42m| Conteudo do arquivo = {name_file}.txt |\033[m")
+        count = input("Qual palavra quer verificar? \n")
 
         with open(f"{paths}/{name_file}.txt", mode="r", encoding="utf-8") as file:
             text = file.readlines()
 
             for i, row in enumerate(text):
                 print(f"{i}: {row}")
+                print(f"\033[0;33;44mQuatidade de palavras encontradas: {row.count(count)}\033[m")
                 sleep(.5)
         exit()
 

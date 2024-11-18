@@ -9,7 +9,7 @@ def clear_console():
 """ Gerar data para renomear o arquivo """
 def get_hours():
     date = datetime.now()
-    day = date.strftime("%d_%m_%Y")
+    day = f"{date:%d_%m_%Y}"
 
     return day
 
